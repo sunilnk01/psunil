@@ -1,0 +1,480 @@
+/* =============================
+   styles.css
+   =============================
+   This file contains all styling for the portfolio.
+   Adjust fonts, colors, spacing, and animations here.
+   ============================= */
+
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Base body styles - adjust font size here */
+body {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    font-size: 18px; /* Increased base font size */
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Link styles */
+a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: darkorange;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: darkorange;
+}
+
+/* ========== NAVIGATION ========== */
+/* Desktop Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 600;
+    color: darkorange;
+}
+
+.menu-bar {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.menu-bar li { 
+    font-size: 25px;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+.mobile-menu .close-icon {
+    text-align: right;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-menu li a {
+    font-size: 22px;
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ========== SECTIONS ========== */
+/* Base section styling - adjust padding for section separation */
+.page-section {
+    padding: 120px 50px 80px 50px; /* Increased padding for better section separation */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Initially hidden for fade-in animation */
+    transform: translateY(20px); /* Initial position for animation */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Show section when it's in view (handled by JS) */
+.page-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Home/About Section */
+.home-section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 600px;
+}
+
+.home-section h1 {
+    font-size: 60px; /* Increased font size */
+    color: darkorange;
+    margin: 0;
+}
+
+.intro, .title {
+    font-size: 22px; /* Increased font size */
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 50px; /* Increased icon size */
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: darkorange;
+    transform: scale(1.1);
+}
+
+.image-container img {
+    width: 320px; /* Slightly increased size */
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid darkorange;
+}
+
+/* ========== SKILLS SECTION ========== */
+.skills-section h2 {
+    font-size: 45px; /* Increased font size */
+    color: darkorange;
+    margin-bottom: 40px;
+}
+
+.skills-category {
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.skills-category h3 {
+    font-size: 28px; /* Increased font size */
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 4px solid darkorange;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Slightly increased min size */
+    gap: 20px; /* Increased gap */
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+}
+
+.skill-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 25px; /* Increased padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skill-icon {
+    font-size: 45px; /* Increased icon size */
+    color: darkorange;
+}
+
+.skill-name {
+    font-weight: 500;
+    font-size: 18px; /* Increased font size */
+}
+
+/* ========== PROJECTS SECTION ========== */
+.projects-section h2 {
+    font-size: 45px; /* Increased font size */
+    color: darkorange;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly increased min size */
+    gap: 35px; /* Increased gap */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 35px; /* Increased padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    color: darkorange;
+    margin-bottom: 15px; /* Increased margin */
+    font-size: 24px; /* Increased font size */
+}
+
+.project-card p {
+    margin-bottom: 25px; /* Increased margin */
+    font-size: 18px; /* Increased font size */
+}
+
+.btn {
+    padding: 14px 28px; /* Increased padding */
+    background-color: transparent;
+    border-radius: 25px;
+    font-size: 18px; /* Increased font size */
+    font-weight: 600;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: inline-block;
+}
+
+.btn-project:hover {
+    background-color: black;
+    color: white;
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+    padding-top: 120px; /* Increased padding */
+}
+
+.contact-section h2 {
+    font-size: 45px; /* Increased font size */
+    color: darkorange;
+    margin-bottom: 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Increased gap */
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.contact-details p {
+    font-size: 22px; /* Increased font size */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-details i {
+    color: darkorange;
+    font-size: 28px; /* Increased icon size */
+}
+
+.contact-social-links {
+    display: flex;
+    gap: 35px; /* Increased gap */
+}
+
+.large-icon {
+    font-size: 45px; /* Increased icon size */
+}
+
+/* ========== MEDIA QUERIES ========== */
+/* Adjust styles for tablets and mobile devices */
+@media (max-width: 1024px) {
+    .navbar {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .page-section {
+        padding: 120px 25px 50px 25px; /* Adjusted padding for mobile */
+    }
+
+    .home-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .content-container {
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-section h1 {
+        font-size: 45px; /* Adjusted for mobile */
+    }
+
+    .intro, .title {
+        font-size: 20px; /* Adjusted for mobile */
+    }
+
+    .image-container img {
+        width: 280px; /* Adjusted for mobile */
+        height: 280px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px; /* Slightly smaller base font on very small screens */
+    }
+    
+    .home-section h1 {
+        font-size: 36px;
+    }
+    
+    .page-section h2 {
+        font-size: 36px;
+    }
+    
+    .skill-icon {
+        font-size: 36px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ========== CV BUTTON STYLES ========== */
+/* Add these styles to your existing CSS file */
+
+.btn-cv {
+    padding: 14px 28px;
+    background-color: darkorange;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid darkorange;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cv:hover {
+    background-color: transparent;
+    color: darkorange;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* For mobile responsiveness */
+@media (max-width: 1024px) {
+    .btn-cv {
+        margin-top: 15px;
+    }
+}
